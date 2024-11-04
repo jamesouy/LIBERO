@@ -144,23 +144,30 @@ class Libero_Kitchen_Tabletop_Manipulation(BDDLBaseDomain):
         return result
 
     def _eval_predicate(self, state):
-        if len(state) == 3:
-            # Checking binary logical predicates
-            predicate_fn_name = state[0]
-            object_1_name = state[1]
-            object_2_name = state[2]
-            return eval_predicate_fn(
-                predicate_fn_name,
-                self.object_states_dict[object_1_name],
-                self.object_states_dict[object_2_name],
-            )
-        elif len(state) == 2:
-            # Checking unary logical predicates
-            predicate_fn_name = state[0]
-            object_name = state[1]
-            return eval_predicate_fn(
-                predicate_fn_name, self.object_states_dict[object_name]
-            )
+        # modified to work with any number of arguments and supporting arguments other than object names
+        # by defaulting to a string if the given object name does not exist
+        assert len(state) >= 2 # would this not work for True and False predicates?
+        predicate_fn_name = state[0]
+        args = [self.object_states_dict.get(arg, arg) for arg in state[1:]]
+        return eval_predicate_fn(predicate_fn_name, *args)
+    
+        # if len(state) == 3:
+        #     # Checking binary logical predicates
+        #     predicate_fn_name = state[0]
+        #     object_1_name = state[1]
+        #     object_2_name = state[2]
+        #     return eval_predicate_fn(
+        #         predicate_fn_name,
+        #         self.object_states_dict[object_1_name],
+        #         self.object_states_dict[object_2_name],
+        #     )
+        # elif len(state) == 2:
+        #     # Checking unary logical predicates
+        #     predicate_fn_name = state[0]
+        #     object_name = state[1]
+        #     return eval_predicate_fn(
+        #         predicate_fn_name, self.object_states_dict[object_name]
+        #     )
 
     def _setup_references(self):
         super()._setup_references()
