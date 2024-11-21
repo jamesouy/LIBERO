@@ -43,6 +43,10 @@
 		      quat="0.70711 0.00000 0.70711 0.00000"
 		      size="0.02993 0.07561 0.10224" group="0"
 		      rgba="0.8 0.8 0.8 0" name="top_region"/>
+		<site type="box" pos="0.00328 -0.0956 0.18563"
+		      quat="0.70711 0.00000 0.70711 0.00000"
+		      size="0.005 0.015 0.046" group="0"
+		      rgba="0.8 0.8 0.8 0" name="top_handle"/>
 
 		<geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_top_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_top"/>
 		<geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="box" pos="0.00334 -0.07524 0.18309" quat="0.50000 0.50000 -0.50000 -0.50000" size="0.00271 0.03427 0.10934" group="0" rgba="0.8 0.8 0.8 0.3"/>
@@ -63,6 +67,10 @@
                 <joint name="middle_level" type="slide" pos="0 0 0" axis="0 1 0"
 		       limited="true" range="-0.16 0.01" damping="50"/>
 		<site name="middle_region" type="box" pos="0.00328 0.01128 0.11690" quat="0.70711 0.00000 0.70711 0.00000" size="0.02993 0.07561 0.10224" group="0" rgba="0.8 0.8 0.8 0"/>
+		<site type="box" pos="0.00328 -0.0956 0.11690"
+		      quat="0.70711 0.00000 0.70711 0.00000"
+		      size="0.005 0.015 0.046" group="0"
+		      rgba="0.8 0.8 0.8 0" name="middle_handle"/>
 		<geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_middle_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_middle"/>
 		<geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="box" pos="0.00334 -0.07524 0.11338" quat="0.50000 0.50000 -0.50000 -0.50000" size="0.00271 0.03427 0.10934" group="0" rgba="0.8 0.8 0.8 0.3"/>
 		<geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="box" pos="0.00334 0.09077 0.11387" quat="0.50000 0.50000 0.50000 0.50000" size="0.00356 0.03214 0.10679" group="0" rgba="0.8 0.8 0.8 0.3"/>
@@ -83,6 +91,10 @@
 		       limited="true" range="-0.16 0.01" damping="50"/>
 
 		<site name="bottom_region" type="box" pos="0.00328 0.01128 0.04701" quat="0.70711 0.00000 0.70711 0.00000" size="0.02993 0.07561 0.10224" group="0" rgba="0.8 0.8 0.8 0"/>
+		<site type="box" pos="0.00328 -0.0956 0.04701"
+		      quat="0.70711 0.00000 0.70711 0.00000"
+		      size="0.005 0.015 0.046" group="0"
+		      rgba="0.8 0.8 0.8 0" name="bottom_handle"/>
 		
 		<geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_bottom_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_bottom"/>
 		<geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="box" pos="0.00334 -0.07524 0.04476" quat="0.50000 0.50000 -0.50000 -0.50000" size="0.00271 0.03427 0.10934" group="0" rgba="0.8 0.8 0.8 0.3"/>
