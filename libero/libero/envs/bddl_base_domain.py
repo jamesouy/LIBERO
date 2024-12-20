@@ -20,6 +20,8 @@ from libero.libero.envs.objects import *
 from libero.libero.envs.regions import *
 from libero.libero.envs.arenas import *
 
+from typing import Union, Optional
+
 
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -841,7 +843,7 @@ class BDDLBaseDomain(SingleArmEnv):
     def language_instruction(self):
         return self.parsed_problem["language"]
 
-    def get_object(self, object_name):
+    def get_object(self, object_name) -> Optional[Union[MujocoXMLObject, SiteObject]]:
         for query_dict in [
             self.fixtures_dict,
             self.objects_dict,
@@ -849,3 +851,7 @@ class BDDLBaseDomain(SingleArmEnv):
         ]:
             if object_name in query_dict:
                 return query_dict[object_name]
+
+    def get_object_site(self, object_name) -> Optional[SiteObject]:
+        if object_name in self.object_sites_dict:
+            return self.object_sites_dict[object_name]

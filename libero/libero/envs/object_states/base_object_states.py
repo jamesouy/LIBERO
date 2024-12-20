@@ -1,8 +1,18 @@
 import robosuite.utils.transform_utils as transform_utils
 import numpy as np
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from libero.libero.envs.bddl_base_domain import BDDLBaseDomain
+
 
 class BaseObjectState:
+    env: 'BDDLBaseDomain'
+    object_name: str
+    is_fixture: bool
+    query_dict: dict
+    object_state_type: str
+
     def __init__(self):
         pass
 
@@ -32,7 +42,7 @@ class BaseObjectState:
 
 
 class ObjectState(BaseObjectState):
-    def __init__(self, env, object_name, is_fixture=False):
+    def __init__(self, env: 'BDDLBaseDomain', object_name: str, is_fixture=False):
         self.env = env
         self.object_name = object_name
         self.is_fixture = is_fixture
@@ -139,7 +149,7 @@ class SiteObjectState(BaseObjectState):
     This is to make site based objects to have the same API as normal Object State.
     """
 
-    def __init__(self, env, object_name, parent_name, is_fixture=False):
+    def __init__(self, env: 'BDDLBaseDomain', object_name: str, parent_name: str, is_fixture=False):
         self.env = env
         self.object_name = object_name
         self.parent_name = parent_name
