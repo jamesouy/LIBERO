@@ -25,7 +25,6 @@ def update_predicate_fn_dict(fn_key, fn_name):
 def register_predicate_fn(target_class):
     """We design the mapping to be case-INsensitive."""
     VALIDATE_PREDICATE_FN_DICT[target_class.__name__.lower()] = target_class()
-    print(VALIDATE_PREDICATE_FN_DICT)
 
 
 def eval_predicate_fn(predicate_fn_name, *args):
