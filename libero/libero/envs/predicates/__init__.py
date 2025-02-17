@@ -22,13 +22,10 @@ def update_predicate_fn_dict(fn_key, fn_name):
     VALIDATE_PREDICATE_FN_DICT.update({fn_key: eval(fn_name)()})
 
 
-def register_predicate_fn(target_class):
-    """We design the mapping to be case-INsensitive."""
-    VALIDATE_PREDICATE_FN_DICT[target_class.__name__.lower()] = target_class()
-
-
 def eval_predicate_fn(predicate_fn_name, *args):
     assert predicate_fn_name in VALIDATE_PREDICATE_FN_DICT, f"{predicate_fn_name} is not a valid predicate"
+    # if predicate_fn_name not in VALIDATE_PREDICATE_FN_DICT:
+    #     return False
     return VALIDATE_PREDICATE_FN_DICT[predicate_fn_name](*args)
 
 
