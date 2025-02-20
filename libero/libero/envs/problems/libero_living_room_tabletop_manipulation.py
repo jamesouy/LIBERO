@@ -17,7 +17,7 @@ class Libero_Living_Room_Tabletop_Manipulation(BDDLBaseDomain):
             self.living_room_table_full_size = living_room_table_full_size
         else:
             self.living_room_table_full_size = (0.70, 1.6, 0.024)
-        self.living_room_table_offset = (0, 0, 0.41)
+        self.living_room_table_offset = (0, 0, 0.43)
         # For z offset of environment fixtures
         self.z_offset = 0.01 - self.living_room_table_full_size[2]
         kwargs.update(
