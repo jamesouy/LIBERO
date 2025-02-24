@@ -60,7 +60,7 @@ def eval_predicate_fn(predicate_fn_name, *args, env: Optional[BDDLBaseDomain] = 
     if predicate_fn_name.lower() in ['and', 'or']: # and/or require the environment
         return predicate_fn(env, *args)
     else:
-        return VALIDATE_PREDICATE_FN_DICT[predicate_fn_name](*args)
+        return predicate_fn(*args)
 
 
 def get_predicate_fn_dict():
