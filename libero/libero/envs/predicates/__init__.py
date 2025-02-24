@@ -3,7 +3,7 @@ from ...envs.bddl_base_domain import BDDLBaseDomain
 from typing import Optional
 
 
-# And and Or can't be defined in base_predicates because they require eval_goal_state and there will be a cyclical import
+# And, Or, and Not can't be defined in base_predicates because they require eval_goal_state and there will be a cyclical import
 class AndPredicateFn(MultiarayAtomic):
     def __call__(self, env: BDDLBaseDomain, *args):
         assert len(args) >= 1
@@ -14,6 +14,10 @@ class OrPredicateFn(MultiarayAtomic):
     def __call__(self, env: BDDLBaseDomain, *args):
         assert len(args) >= 1
         return any(eval_goal_state(arg, env=env) for arg in args)
+    
+class NotPredicateFn(UnaryAtomic):
+    def __call__(self, env: BDDLBaseDomain, arg):
+        return not eval_goal_state(arg, env=env)
 
 
 VALIDATE_PREDICATE_FN_DICT = {
@@ -21,6 +25,7 @@ VALIDATE_PREDICATE_FN_DICT = {
     "false": FalsePredicateFn(),
     "and": AndPredicateFn(),
     "or": OrPredicateFn(),
+    "not": NotPredicateFn(),
     "in": In(),
     # "incontact": InContactPredicateFn(),
     "on": On(),
@@ -57,7 +62,7 @@ def eval_predicate_fn(predicate_fn_name, *args, env: Optional[BDDLBaseDomain] = 
     # if predicate_fn_name not in VALIDATE_PREDICATE_FN_DICT:
     #     return False
     predicate_fn = VALIDATE_PREDICATE_FN_DICT[predicate_fn_name]
-    if predicate_fn_name.lower() in ['and', 'or']: # and/or require the environment
+    if predicate_fn_name.lower() in ['and', 'or', 'not']: # and, or, and not require the environment
         return predicate_fn(env, *args)
     else:
         return predicate_fn(*args)
