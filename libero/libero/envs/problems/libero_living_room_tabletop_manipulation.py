@@ -146,10 +146,7 @@ class Libero_Living_Room_Tabletop_Manipulation(BDDLBaseDomain):
     def _eval_predicate(self, state):
         # modified to work with any number of arguments and supporting arguments other than object names
         # by defaulting to a string if the given object name does not exist
-        assert len(state) >= 2 # would this not work for True and False predicates?
-        predicate_fn_name = state[0]
-        args = [self.object_states_dict.get(arg, arg) for arg in state[1:]]
-        return eval_predicate_fn(predicate_fn_name, *args)
+        return eval_goal_state(state, self)
     
         # if len(state) == 3:
         #     # Checking binary logical predicates
