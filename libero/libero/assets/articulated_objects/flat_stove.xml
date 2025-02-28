@@ -34,6 +34,7 @@
                 <inertial pos="0 0 0" mass="3" diaginertia="1 1 1" />
                 <joint name="button" type="hinge" pos="0 0 0" axis="0 0 1"
 		       limited="true" range="-0.005 2.1" damping="1"/>
+			<site type="box" pos="0 0 0.03" quat="1 0 0 0" size="0.04 0.04 0.04" group="0" rgba="0.8 0.8 0. 0" name="knob_region"/>
 		<geom solimp="0.998 0.998 0.001" solref="0.001 1"
 		      density="100" friction="0.95 0.3 0.1"
 		      type="mesh" mesh="stove_knob_button_vis"
