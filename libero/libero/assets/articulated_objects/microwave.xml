@@ -50,7 +50,7 @@
                 <geom class="microwave" material="micro_metal" euler="1.57 0 0" pos="0.2375 -0.0375 0.065" size="0.01 0.015" type="capsule"/>
                 <geom class="microwave" material="micro_metal" euler="1.57 0 0" pos="0.2375 -0.0375 -0.065" size="0.01 0.015" type="capsule"/>
 
-	            <site rgba="1 0 0 0" type="box" pos="0.2375 -0.047 0" quat="1 0 0 0" size="0.03 0.15 0.05" name="handle_region"/>
+	            <site rgba="1 0 0 0" type="box" pos="0.2375 -0.05 0" quat="1 0 0 0" size="0.01 0.01 0.06" name="handle_region"/>
 
                 <geom class="micro_collision" pos="0.2375 -0.054 0" size="0.01 0.065" type="capsule" mass="0.020"/>
                 <geom class="micro_collision" euler="1.57 0 0" pos="0.2375 -0.0375 .065" size="0.01 0.015" type="capsule" mass="0.020"/>
